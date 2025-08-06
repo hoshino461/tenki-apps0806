@@ -7,7 +7,7 @@ from geopy.geocoders import ArcGIS
 app = FastAPI()
 
 # ジオコーディングサービスをArcGISに変更
-geolocator = ArcGIS(user_agent="tenki_app")
+geolocator = ArcGIS(user_agent="tenki_app", timeout=10)
 
 @app.get("/api/weather")
 def get_weather(location: str):
