@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天気予報アプリ</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>漁港の波情報</h1>
+        <form id="weather-form">
+            <div class="form-group" id="location-checkboxes">
+                <label>表示する港を選択してください</label>
+                <!-- チェックボックスは script.js によって動的に追加されます -->
+            </div>
+            <button type="submit">選択した港の情報を取得</button>
+        </form>
+
+        <div id="results-container">
+            <!-- 結果がここに表示されます -->
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
