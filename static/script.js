@@ -126,4 +126,26 @@ document.addEventListener('DOMContentLoaded', () => {
             resultsContainer.innerHTML = `<p class="error">全体的なエラーが発生しました: ${error.message}</p>`;
         }
     });
+
+    // --- 天気図表示機能 ---
+    const toggleChartBtn = document.getElementById('toggle-chart-btn');
+    const chartImageWrapper = document.getElementById('chart-image-wrapper');
+    const weatherChartImage = document.getElementById('weather-chart-image');
+    const chartUrl = 'https://www.jma.go.jp/bosai/weather_map/img/jpsa.png'; // 気象庁の最新天気図URL
+
+    toggleChartBtn.addEventListener('click', () => {
+        if (chartImageWrapper.classList.contains('hidden')) {
+            // 表示する場合
+            if (!weatherChartImage.src) {
+                 // 初回クリック時のみ画像を読み込む
+                weatherChartImage.src = `${chartUrl}?v=${new Date().getTime()}`;
+            }
+            chartImageWrapper.classList.remove('hidden');
+            toggleChartBtn.textContent = '天気図を隠す';
+        } else {
+            // 非表示にする場合
+            chartImageWrapper.classList.add('hidden');
+            toggleChartBtn.textContent = '天気図を表示';
+        }
+    });
 });

@@ -138,3 +138,35 @@ p {
         font-size: 1.2rem;
     }
 }
+
+/* --- Weather Chart Styles --- */
+#weather-chart-container {
+    margin-top: 2rem;
+}
+
+#toggle-chart-btn {
+    margin-bottom: 1rem;
+    background-color: #2a9d8f;
+}
+
+#toggle-chart-btn:hover {
+    background-color: #264653;
+}
+
+#chart-image-wrapper {
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    background: #f8f9fa;
+}
+
+#weather-chart-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none;
+}
