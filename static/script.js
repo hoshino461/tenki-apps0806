@@ -102,7 +102,6 @@ window.addEventListener('load', () => {
                             const waveHeight = data.hourly.wave_height[index];
                             const waveDirection = data.hourly.wave_direction[index];
                             const wavePeriod = data.hourly.wave_period[index];
-                            const seaSurfaceTemperature = data.hourly.sea_surface_temperature[index];
                             const airTemperature = data.hourly.temperature_2m[index];
                             const resolvedLocation = data.resolved_location;
 
@@ -122,10 +121,6 @@ window.addEventListener('load', () => {
                                 <h3>${resolvedLocation}</h3>
                                 <p><strong>${time}の予報</strong></p>
                                 <ul>
-                                    <li>波の高さ: <strong>${waveHeight} m</strong></li>
-                                    <li>波の向き: <strong>${waveDirection}°</strong></li>
-                                    <li>波の周期: <strong>${wavePeriod} s</strong></li>
-                                    <li>海水温: <strong>${seaSurfaceTemperature} °C</strong></li>
                                     <li>気温: <strong>${airTemperature} °C</strong></li>
                                 </ul>
                                 ${dailyForecastHtml}
