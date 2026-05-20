@@ -31,7 +31,7 @@ def get_weather(location: str):
             raise HTTPException(status_code=500, detail=f"ジオコーディング中にエラーが発生しました: {e}")
 
     # Marine APIで有効なパラメータに修正
-    url = f"https://marine-api.open-meteo.com/v1/marine?latitude={lat}&longitude={lon}&hourly=wave_height,wave_direction,wave_period,sea_surface_temperature&timezone=Asia%2FTokyo"
+    url = f"https://marine-api.open-meteo.com/v1/marine?latitude={lat}&longitude={lon}&hourly=wave_height,wave_direction,wave_period,sea_surface_temperature,temperature_2m&timezone=Asia%2FTokyo"
 
     try:
         response = requests.get(url)

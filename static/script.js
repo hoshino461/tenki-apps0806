@@ -103,7 +103,7 @@ window.addEventListener('load', () => {
                             const waveDirection = data.hourly.wave_direction[index];
                             const wavePeriod = data.hourly.wave_period[index];
                             const seaSurfaceTemperature = data.hourly.sea_surface_temperature[index];
-                            const resolvedLocation = data.resolved_location;
+                            const airTemperature = data.hourly.temperature_2m[index];
 
                             resultCard.innerHTML = `
                                 <h3>${resolvedLocation}</h3>
@@ -113,6 +113,7 @@ window.addEventListener('load', () => {
                                     <li>波の向き: <strong>${waveDirection}°</strong></li>
                                     <li>波の周期: <strong>${wavePeriod} s</strong></li>
                                     <li>海水温: <strong>${seaSurfaceTemperature} °C</strong></li>
+                                    <li>気温: <strong>${airTemperature} °C</strong></li>
                                 </ul>
                             `;
                         } else {
