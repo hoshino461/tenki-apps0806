@@ -104,6 +104,19 @@ window.addEventListener('load', () => {
                             const wavePeriod = data.hourly.wave_period[index];
                             const seaSurfaceTemperature = data.hourly.sea_surface_temperature[index];
                             const airTemperature = data.hourly.temperature_2m[index];
+                            const resolvedLocation = data.resolved_location;
+
+                            let dailyForecastHtml = '';
+                            if (data.daily && data.daily.time && data.daily.temperature_2m_max && data.daily.temperature_2m_min) {
+                                dailyForecastHtml = '<h4>週間天気</h4><ul>';
+                                for (let i = 0; i < data.daily.time.length; i++) {
+                                    const date = new Date(data.daily.time[i]).toLocaleDateString('ja-JP', { month: 'numeric', day: 'numeric' });
+                                    const maxTemp = data.daily.temperature_2m_max[i];
+                                    const minTemp = data.daily.temperature_2m_min[i];
+                                    dailyForecastHtml += `<li>${date}: 最高 ${maxTemp}°C / 最低 ${minTemp}°C</li>`;
+                                }
+                                dailyForecastHtml += '</ul>';
+                            }
 
                             resultCard.innerHTML = `
                                 <h3>${resolvedLocation}</h3>
@@ -115,6 +128,7 @@ window.addEventListener('load', () => {
                                     <li>海水温: <strong>${seaSurfaceTemperature} °C</strong></li>
                                     <li>気温: <strong>${airTemperature} °C</strong></li>
                                 </ul>
+                                ${dailyForecastHtml}
                             `;
                         } else {
                             resultCard.innerHTML = `
